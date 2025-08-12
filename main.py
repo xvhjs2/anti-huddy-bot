@@ -68,7 +68,7 @@ async def on_member_join(member):
             except:
                 print('failed to ban huddy :(')
 
-        elif any(huddyid in member.id.lower() for huddyid in blacklisted_ids):
+        elif member.id in blacklisted_ids:
             try:
                 await member.send('ur def a huddy alt so ur banned ')
             except:
@@ -109,5 +109,6 @@ async def masshuddyban(ctx):
             print('failed to ban account')
     embed2 = discord.Embed(title='Huddy Detector', description="✅ Successfully banned Huddy's accounts")
     await ctx.reply(embed=embed2)
+
 
 blud.run('enter your bot token')
