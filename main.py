@@ -68,7 +68,7 @@ async def on_member_join(member):
             except:
                 print('failed to ban huddy :(')
 
-        elif member.id in blacklisted_ids:
+        elif str(member.id) in blacklisted_ids:
             try:
                 await member.send('ur def a huddy alt so ur banned ')
             except:
@@ -112,3 +112,4 @@ async def masshuddyban(ctx):
 
 
 blud.run('enter your bot token')
+
