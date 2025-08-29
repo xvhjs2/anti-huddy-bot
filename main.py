@@ -11,7 +11,7 @@ blud = commands.Bot(command_prefix=prefix, intents=intents)
 huddyevidence = "79ee349b6511e2000af8a32fb8a6974e" 
 
 blacklisted_names = ['huddy', 'hanzala', 'hanza', 'hamzi', 
-                     'hamza', 'hanzi', 'mama666', 'tungdynasty', "daisysdestruction", 'nanda', 'northkorea', 'NotSoFantastic'] 
+                     'hamza', 'hanzi', 'mama666', 'tungdynasty', "daisysdestruction", 'nanda', 'northkorea', 'NotSoFantastic', 'necro', 'uncannyrapist', 'uncannyrpiper', '亡靈開膛手', 'lolodin'] 
 
 config = "data/servers.json"
 if not os.path.exists(config):
@@ -68,6 +68,16 @@ async def on_member_join(member):
             except:
                 print('failed to ban huddy :(')
 
+        elif 'uncanny' in member.name.lower() and 'ripper' in member.name.lower() and '666' in member.name.lower(): 
+            try:
+                await member.send("get the fuck out necro uncanny ripper 666 guy or whatever your name is. go back to gof's server")
+            except:
+                print('failed to send message')
+            try:
+                await member.ban(reason="potential necrouncannyrapistripper666 alt account")
+            except:
+                print('failed to ban necrophillia guy :(')
+
         elif str(member.id) in blacklisted_ids:
             try:
                 await member.send('ur def a huddy alt so ur banned ')
@@ -85,6 +95,10 @@ async def on_member_join(member):
 
 @blud.command(name='toggle', help='turns huddy detector on/off')
 async def banhuddy(ctx):
+    if not ctx.author.guild_permissions.manage_guild:
+        await ctx.send("❌ You don't have permission to do this: `MANAGE_SERVER` is required")
+        return
+
     guild = ctx.guild
     guild_id = str(ctx.guild.id)
     huddyban = configs.get(guild_id, {}).get("banhuddy", False)
@@ -96,6 +110,7 @@ async def banhuddy(ctx):
     print(f'huddy detector is {status}')
     await ctx.reply(embed=embed)
 
+        
 @blud.command(name='banhuddy', help="Bans most of Huddy's past accounts")
 async def masshuddyban(ctx):
     embed = discord.Embed(title='Huddy Detector', description="Massbanning Huddy's accounts")
@@ -110,6 +125,4 @@ async def masshuddyban(ctx):
     embed2 = discord.Embed(title='Huddy Detector', description="✅ Successfully banned Huddy's accounts")
     await ctx.reply(embed=embed2)
 
-
-blud.run('enter your bot token')
-
+blud.run('bot token')
