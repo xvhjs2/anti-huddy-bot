@@ -83,7 +83,8 @@ async def on_member_join(member):
             except:
                 print('failed to ban necrophillia guy :(')
 
-        elif any(obvjud in member.display_name.lower() for obvjud in blacklisted_names2) and any(obvjudah in member.display_name.lower() for obvjud in blacklisted_names2) and not str(member.id) in safe_ids:
+        elif (any(obvjud in member.display_name.lower() for obvjud in blacklisted_names2) or 
+              any(obvjudah in member.display_name.lower() for obvjudah in obvjudah)) and not str(member.id) in safe_ids:
             try:
                 await member.send("kill yourself judah")
             except:
@@ -91,7 +92,7 @@ async def on_member_join(member):
             try:
                 await member.ban(reason="potential judah alt account")
             except:
-                print('failed to ban necrophillia guy :(')
+                print('failed to ban judah :(')
         
         elif str(member.id) in blacklisted_ids:
             try:
@@ -154,7 +155,7 @@ async def masshuddyban(ctx):
             print('failed to ban account')
     embed2 = discord.Embed(title='Huddy Detector', description="✅ Successfully banned Huddy's accounts")
     await ctx.reply(embed=embed2)
-    await ctx.reply(embed=embed2)
 
 blud.run('enter your bot token here')
+
 
