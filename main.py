@@ -125,7 +125,7 @@ async def banhuddy(ctx):
     print(f'huddy detector is {status}')
     await ctx.reply(embed=embed)
 
-@bot.command()
+@blud.command()
 async def banjudah(ctx):
     guild = ctx.guild
     judahids = ['1328567772116029542', '1293000690117120020', '867433511316357151', '1412620373861863434', '815986860521685033', '1394485081673826425', '958441194524913725', '1148077609457033288']
@@ -154,5 +154,7 @@ async def masshuddyban(ctx):
             print('failed to ban account')
     embed2 = discord.Embed(title='Huddy Detector', description="✅ Successfully banned Huddy's accounts")
     await ctx.reply(embed=embed2)
+    await ctx.reply(embed=embed2)
 
 blud.run('enter your bot token here')
+
