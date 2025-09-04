@@ -10,6 +10,7 @@ blud = commands.Bot(command_prefix=prefix, intents=intents)
 
 huddyevidence = "79ee349b6511e2000af8a32fb8a6974e" 
 
+blacklisted_phrase = 'worst mibu'
 blacklisted_names = ['huddy', 'hanzala', 'hanza', 'hamzi', 
                      'hamza', 'hanzi', 'mama666', 'tungdynasty', "daisysdestruction", 'nanda', 'northkorea', 'NotSoFantastic', 'necro', 'uncannyrapist', 'uncannyrpiper', '亡靈開膛手', 'lolodin'] 
 
@@ -31,6 +32,7 @@ def save(data):
 
 configs = load()
 
+obvhuddy2 = ['twomad', 'stilian', 'ld', 'gsd', 'music', 'judah', 'king', 'huddy', 'antares', 'gof', 'awesomecat', 'slaughterhouse', 'uttp', '27dde', 'dante', 'hexagon', 'joe mama', 'dawn', 'yasmin pierre', 'dsf']
 @blud.event
 async def on_guild_join(guild):
     if str(guild.id) not in configs:
@@ -40,6 +42,38 @@ async def on_guild_join(guild):
 with open('huddyids.txt', 'r') as f:
     blacklisted_ids = f.read().splitlines()
     print(blacklisted_ids)
+
+
+
+@blud.event
+async def on_message(message: discord.Message):
+    if message.author.bot:
+        return
+
+    if message.author.id > 1400000000000000000:
+        if 'top' in message.content.lower() and 'worst' in message.content.lower() and 'mibu' in message.content.lower() and 'related' in message.content.lower() and any(hd in message.content.lower() for hd in obvhuddy2):
+            try:
+                await message.guild.ban(
+                    message.author,
+                    reason="huddy we know it's you"
+                )
+                print(f"Banned {message.author} for potentially being huddy.")
+                new_members.discard(message.author.id)
+            except Exception as e:
+                print(f"Failed to ban {message.author}: {e}")
+
+            elif 'franzer' in message.content.lower() and 'fuck' in message.content.lower():
+                try:
+                    await message.guild.ban(
+                        message.author,
+                        reason="judah we know it's you"
+                    )
+                    print(f"Banned {message.author} for potentially being judah.")
+                    new_members.discard(message.author.id)
+                except Exception as e:
+                    print(f"Failed to ban {message.author}: {e}")
+
+    await blud.process_commands(message)
 
 
 @blud.event
@@ -156,6 +190,4 @@ async def masshuddyban(ctx):
     embed2 = discord.Embed(title='Huddy Detector', description="✅ Successfully banned Huddy's accounts")
     await ctx.reply(embed=embed2)
 
-blud.run('enter your bot token here')
-
-
+blud.run('enter ur bot token')
