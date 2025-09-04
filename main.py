@@ -16,7 +16,7 @@ blacklisted_names = ['huddy', 'hanzala', 'hanza', 'hamzi',
 
 blacklisted_names2 = ['neku', 'henry', 'henery', 'franzer', 'xv', 'kale', 'beau', 'viviun', 'bajel', 'day', 'adam', 'nana', 'kimi']
 
-obvjudah = ['dick', 'tits', 'pussy', 'judah', 'ass', 'boobs', 'cum', 'fuck', 'nigger', 'neku', 'henry', 'henery', 'franzer', 'xv', 'kale', 'beau', 'viviun', 'bajel', 'day', 'adam', 'nana', 'kimi']
+obvjudah = ['dick', 'tits', 'pussy', 'judah', 'ass', 'boobs', 'cum', 'fuck', 'nigger']
 
 config = "data/servers.json"
 if not os.path.exists(config):
@@ -58,21 +58,10 @@ async def on_message(message: discord.Message):
                     reason="huddy we know it's you"
                 )
                 print(f"Banned {message.author} for potentially being huddy.")
-                new_members.discard(message.author.id)
             except Exception as e:
                 print(f"Failed to ban {message.author}: {e}")
 
-            elif 'franzer' in message.content.lower() and 'fuck' in message.content.lower():
-                try:
-                    await message.guild.ban(
-                        message.author,
-                        reason="judah we know it's you"
-                    )
-                    print(f"Banned {message.author} for potentially being judah.")
-                    new_members.discard(message.author.id)
-                except Exception as e:
-                    print(f"Failed to ban {message.author}: {e}")
-
+    
     await blud.process_commands(message)
 
 
@@ -80,7 +69,7 @@ async def on_message(message: discord.Message):
 async def on_ready():
     print(f'logged in as {blud.user}')
 
-safe_ids = ['1408332135873384450', '1091167315678212216', '972883349163098214', '1160646380214296716', '763882154173923368', '309437317813239809', '705536958990123079', '861291608968265759', '780287531840700418', '1313368024673423401', '1310784364375834714', '1157181396884914176', '1389358473313255517', '732676316704276501']
+safe_ids = ['1408332135873384450', '1409664633513443461', '1091167315678212216', '972883349163098214', '1160646380214296716', '763882154173923368', '309437317813239809', '705536958990123079', '861291608968265759', '780287531840700418', '1313368024673423401', '1310784364375834714', '1157181396884914176', '1389358473313255517', '732676316704276501']
 
 @blud.event
 async def on_member_join(member):
@@ -117,7 +106,7 @@ async def on_member_join(member):
             except:
                 print('failed to ban necrophillia guy :(')
 
-        elif (any(obvjud in member.display_name.lower() for obvjud in blacklisted_names2) or 
+        elif (any(obvjud in member.display_name.lower() for obvjud in blacklisted_names2) and 
               any(obvjudah in member.display_name.lower() for obvjudah in obvjudah)) and not str(member.id) in safe_ids:
             try:
                 await member.send("kill yourself judah")
@@ -191,3 +180,4 @@ async def masshuddyban(ctx):
     await ctx.reply(embed=embed2)
 
 blud.run('enter ur bot token')
+
