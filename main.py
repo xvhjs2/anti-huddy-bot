@@ -1,3 +1,4 @@
+#anti huddy and judah bot
 import discord
 import json
 import os
@@ -17,9 +18,9 @@ blacklisted_phrase = 'worst mibu'
 blacklisted_names = ['huddy', 'hanzala', 'hanza', 'hamzi', 
                      'hamza', 'hanzi', 'mama666', 'tungdynasty', "daisysdestruction", 'nanda', 'northkorea', 'NotSoFantastic', 'necro', 'uncannyrapist', 'uncannyrpiper', '亡靈開膛手', 'lolodin'] 
 
-blacklisted_names2 = ['neku', 'henry', 'henery', 'franzer', 'xv', 'kale', 'beau', 'viviun', 'bajel', 'day', 'adam', 'nana', 'kimi']
+blacklisted_names2 = ['neku', 'henry', 'henery', 'franzer', 'xv', 'kale', 'beau', 'viviun', 'bajel', 'day', 'adam', 'nana', 'kimi'] #for judah naming himself names like "BEAU'S DICK"  
 
-obvjudah = ['dick', 'tits', 'pussy', 'judah', 'ass', 'boobs', 'cum', 'fuck', 'nigger']
+obvjudah = ['dick', 'tits', 'pussy', 'judah', 'ass', 'boobs', 'cum', 'fuck', 'nigger'] #+ 
 
 config = "data/servers.json"
 if not os.path.exists(config):
@@ -215,3 +216,4 @@ async def masshuddyban(ctx):
     await ctx.reply(embed=embed2)
 
 blud.run('bot token')
+
