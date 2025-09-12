@@ -2,6 +2,7 @@ import discord
 import json
 import os
 from discord.ext import commands
+import re
 
 intents = discord.Intents.all()
 prefix = "." 
@@ -9,6 +10,8 @@ prefix = "."
 blud = commands.Bot(command_prefix=prefix, intents=intents)
 
 huddyevidence = "79ee349b6511e2000af8a32fb8a6974e" 
+
+pattern = r'^[a-z]+_[a-z]+_\d{2,8}$'
 
 blacklisted_phrase = 'worst mibu'
 blacklisted_names = ['huddy', 'hanzala', 'hanza', 'hamzi', 
@@ -61,9 +64,21 @@ async def on_message(message: discord.Message):
             except Exception as e:
                 print(f"Failed to ban {message.author}: {e}")
 
+    elif message.author.id > 1410000000000000000:
+        if 'worst' in message.content.lower() and 'mibu' in message.content.lower():
+            try:
+                await message.guild.ban(
+                    message.author,
+                    reason="huddy we know it's you"
+                )
+                print(f"Banned {message.author} for potentially being huddy.")
+            except Exception as e:
+                print(f"Failed to ban {message.author}: {e}")
+
     
     await blud.process_commands(message)
 
+nopfp = ['9855d7e3b9780976', '2ccd8ae8b2379360', '18e336a74a159cfd', '411d8a698dd15ddf', '788f05731f8aa02e', '320d5a40d309f942', 'c82b3fa769ed6e6ffdea579381ed5f5c', '157e517cdbf371a47aaead44675714a3', '5445ffd7ffb201a98393cbdf684ea4b1', 'f7f2e9361e8a54ce6e72580ac7b967af', '6c5996770c985bcd6e5b68131ff2ba04']
 
 @blud.event
 async def on_ready():
@@ -127,6 +142,26 @@ async def on_member_join(member):
             except:
                 print('failed to ban huddy :(')
 
+        elif re.fullmatch(pattern, member.name):
+            try:
+                await member.kick(reason="new account. could be a huddy alt")
+            except:
+                print('failed to ban huddy :(')
+
+        elif member.id > 1410000000000000000:
+            ahash = str(member.avatar) if member.avatar else None
+            if ahash:
+                if ahash in nopfp:
+                    try:
+                        await member.kick(reason="new account AND no pfp. could be a huddy alt or a sus user")
+                    except:
+                        print('failed to ban huddy :(')
+            elif not ahash:
+                try:
+                    await member.kick(reason="new account AND no pfp. could be a huddy alt or a sus user")
+                except:
+                    print('failed to ban huddy :(')
+
         else:
             print('this person is safe. not a huddy alt')
     else:
@@ -179,5 +214,4 @@ async def masshuddyban(ctx):
     embed2 = discord.Embed(title='Huddy Detector', description="✅ Successfully banned Huddy's accounts")
     await ctx.reply(embed=embed2)
 
-blud.run('enter ur bot token')
-
+blud.run('bot token')
