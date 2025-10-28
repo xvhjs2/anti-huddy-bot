@@ -1,0 +1,8 @@
+Type: 0 | 1379704969271447602 | AntiRaid | https://discord.com/oauth2/authorize?client_id=1379704969271447602&permissions=8&integration_type=0&scope=bot
+Type: 0 | 651095740390834176 | Security | https://discord.com/oauth2/authorize?client_id=651095740390834176&permissions=8&integration_type=0&scope=bot
+Type: 0 | 536991182035746816 | Wick | https://discord.com/oauth2/authorize?client_id=536991182035746816&permissions=8&integration_type=0&scope=bot
+1250062632388395088 | SecureBot | https://discord.com/oauth2/authorize?client_id=1250062632388395088&permissions=8&integration_type=0&scope=bot
+Type: 1 | 1317483934879055992 | Anti Nuke Bot | https://discord.com/oauth2/authorize?client_id=1317483934879055992&permissions=8&integration_type=0&scope=bot
+Type: 1 | 1369692565024014396 | antinuke 24/7 | https://discord.com/oauth2/authorize?client_id=1369692565024014396&permissions=8&integration_type=0&scope=bot
+Type: 2 | 807520591065120819 | Infinium Anti Nuke | https://discord.com/oauth2/authorize?client_id=807520591065120819&permissions=8&integration_type=0&scope=bot
+Type: 0 | 1395236900562010293 | Cipheron | https://discord.com/oauth2/authorize?client_id=1395236900562010293&permissions=8&integration_type=0&scope=bot
