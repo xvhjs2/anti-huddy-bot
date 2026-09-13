@@ -759,7 +759,9 @@ async def on_message(message: discord.Message):
     timestamp = time.time()
     if message.author == bot.user:
         return
-
+    if str(message.channel.id) in ["1464280414167371992", "1464277687538290836", "1464276488726642719", "1464276511686136050", "1464276622503841954"]:
+        await bot.process_commands(message)
+        return
 # checks if tuppers are being used or wtv
     if message.webhook_id is None:
         recentmsgs[message.id] = {
