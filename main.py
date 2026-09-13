@@ -78,9 +78,9 @@ class Bot:
         self.topxregex = re.compile(r"^Top .* Worst MIBU Users\/Related", re.IGNORECASE)
         self.topxregex2 = re.compile(r"^Top .* MIBUTUBERS worst than Huddy", re.IGNORECASE)
         self.invite_regex = re.compile(r"https://discord\.gg/[a-zA-Z0-9]+", re.IGNORECASE)
-        self.webhookurl = 'https://discord.com/api/webhooks/1464279395744350480/7KsW9RJKKUE2yOl08emuyt07xfzojZ4khFdMWnTkBeKuWgoJRpFeFdSLsoq9bMeafQla' 
-        self.webhookurl2 = 'https://discord.com/api/webhooks/1464280460904632384/-JNGLWY9xTlINvcpGvMr4mFXHeCJXKv27MjkmTlMDYl9-N2ppy53wzxxOs7Ma_gD_xjP'
-        self.webhookurl3 = 'https://discord.com/api/webhooks/1483467727678210190/Bow6q6zhDj2X4Tuju3fGFr-MoaHAQo_qnxEabLJzJGtJ-nNN1aRrKAWsOX9OKA9Y_aCi'
+        self.webhookurl = '' 
+        self.webhookurl2 = ''
+        self.webhookurl3 = ''
         self.date = self.accountdate(self.newer_than)
 
     def accountdate(self, id):
