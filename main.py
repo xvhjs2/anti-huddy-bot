@@ -813,7 +813,7 @@ async def on_message(message: discord.Message):
     checked = await BOT_.checkmsg(message)
     confirmation, reasons = checked
 
-    if "huddy detector" in message.author.name and not str(message.author.id) in ["1396127387212710029", "1461358640995897344"]: # if "huddy detector" is in the webhook message's name and the user id isn't any of the ids listed here (huddy detector 1.0 and 2.0's ids) then it will identify the message as an impersonation attempt
+    if "huddy detector" in message.author.name and not str(message.author.id) in ["1396127387212710029", "1461358640995897344", "1548811959804231763", "1548811639099236374"]: # if "huddy detector" is in the webhook message's name and the user id isn't any of the ids listed here (huddy detector 1.0 and 2.0's ids) then it will identify the message as an impersonation attempt
         if message.webhook_id:
             await message.reply("ohhhh looks like an impersonation attempt.\nIf tupperbox is in the server (which if you're reading this it probably is) then type \"tul!find huddy\" and ban the tupper's owner from the server or react to the message that i replied to with the \":question:\" emoji to identify who actually wrote this if you figure out who actually wrote the message create a forum on the server and give me their username or user id (NOT DISPLAY NAME OR SCREENSHOT) https://discord.gg/x2k22VPDwF\nalso the bot will NEVER tell you to add another bot directly so if they give you a link to a bot it is 100% huddy")
             await BOT_.sendwebhookmessage(BOT_.webhookurl2, {"content": f"@everyone impersonation attempt in {guild.name} (ID: {guild.id})"})
