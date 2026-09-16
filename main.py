@@ -730,18 +730,17 @@ async def on_member_join(member: discord.Member):
     checked = await BOT_.checkuser(member)
     confirmation, reasons = checked
     if confirmation:
+        await alert_user(webhookurl=BOT_.webhookurl2, checked=(confirmation, reasons), user=member)
+
         if (len(reasons) >= 6 or Reasons().impersonate in reasons) and not str(member.id) in safe_ids:
-            await alert_user(webhookurl=BOT_.webhookurl2, checked=(confirmation, reasons), user=member)
             if banhuddy_:
                 await guild.ban(member, reason="80% sure that its huddy\n")
 
         if Reasons().duckpfp in reasons and not str(member.id) in safe_ids:
-            await alert_user(webhookurl=BOT_.webhookurl2, checked=(confirmation, reasons), user=member)
             if banhuddy_:
                 await guild.ban(member, reason="huddy....")
 
         if Reasons().newaccount in reasons and not str(member.id) in safe_ids:
-            await alert_user(webhookurl=BOT_.webhookurl2, checked=(confirmation, reasons), user=member)
             if kicknew:
                 await guild.kick(member, reason="new account")
 
@@ -858,7 +857,10 @@ async def on_message(message: discord.Message):
                 print("invalid invite")
     
     if confirmation:
-        await alert_user(webhookurl=BOT_.webhookurl2, checked=checked, user=message.author) 
+        if len(reasons) == 1 and Reasons().newaccount in reasons:
+            pass
+        else:        
+            await alert_user(webhookurl=BOT_.webhookurl2, checked=checked, user=message.author) 
 
         for i, reason in enumerate(reasons, start=1):
             print(f"Reason {i}: {reason}")
@@ -872,9 +874,6 @@ async def on_message(message: discord.Message):
                 if (Reasons().talksaboutslaughterhouse in reasons or Reasons().talksaboutxvhjs in reasons) and Reasons().speltpeoplewrong in reasons:
                     await guild.ban(message.author, reason="huddy we know its you")
 
-        if kicknew:
-            if Reasons().newaccount in reasons:
-                await guild.kick(message.author, reason="new account")
 
     await bot.process_commands(message)
 
