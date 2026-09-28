@@ -217,6 +217,10 @@ class Bot:
 
             if any(eng in text.lower() for eng in ["engel", "engelfpe", "engel fpe", "engel youtube channel", "engel's youtube channel"]):
                 reasons.add(reasonslist.talksaboutsatar)
+            
+            if "jadina" in text.lower():
+                reasons.add(reasonslist.talksaboutjadina)
+
             if "forevor" in text.lower():
                 reasons.add(reasonslist.forevermisspell)
 
@@ -274,6 +278,10 @@ class Bot:
         if any(eng in text.lower() for eng in ["engel", "engelfpe", "engel fpe", "engel youtube channel", "engel's youtube channel"]):
             reasons.add(reasonslist.talksaboutsatar)
 
+        if "jadina" in text.lower():
+            reasons.add(reasonslist.talksaboutjadina)
+
+        
         if "forevor" in text.lower():
             reasons.add(reasonslist.forevermisspell)
 
@@ -321,6 +329,9 @@ class Bot:
         if any(eng in text.lower() for eng in ["engel", "engelfpe", "engel fpe", "engel youtube channel", "engel's youtube channel"]):
             reasons.add(reasonslist.talksaboutsatar)
 
+        if "jadina" in text.lower():
+            reasons.add(reasonslist.talksaboutjadina)
+
         if "forevor" in text.lower():
             reasons.add(reasonslist.forevermisspell)
 
@@ -346,6 +357,7 @@ class Reasons:
         self.talksaboutauthsauth = "User talks about AuthSauth/Mythiczz"
         self.talksaboutloeleveman = "User talks about Loeleveman"
         self.talksaboutsatar = "User talks about Satar Arab"
+        self.talksaboutjadina = "User mentions Jadina"
 
         self.speltpeoplewrong = "User spelt people wrong"
         self.controversialmisspell = "User spelt controversial wrong"
@@ -507,7 +519,7 @@ async def getyts(ctx):
     embed = discord.Embed(
         title="Huddy Detector", 
         colour=0xD1510E,
-        description=f"These are all of Huddy's YouTube channels. I recommend blocking these channels and little to no communications with him.\n{msg}"
+        description=f"These are all of Huddy's YouTube channels. I recommend blocking these channels and no communication with him.\n{msg}"
         )
     await ctx.send(embed=embed)    
 
@@ -521,7 +533,7 @@ async def getyts(ctx):
     embed = discord.Embed(
         title="Huddy Detector", 
         colour=0xD1510E,
-        description=f"These are all of Huddy's Fandom accounts. I recommend blocking these accounts from your wiki/a wiki you moderate and little to no communications with him.\n{msg}"
+        description=f"These are all of Huddy's Fandom accounts. I recommend blocking these accounts from your wiki/a wiki you moderate and little no communication with him.\n{msg}"
         )
     await ctx.send(embed=embed)    
 
@@ -817,7 +829,7 @@ async def on_message(message: discord.Message):
                 if reason == Reasons().usesraidbot and not str(truesender.id) in safe_ids:
                     await guild.ban(truesender, reason="huddy we know its you")
 
-                if (Reasons().talksaboutslaughterhouse in reasons or Reasons().talksaboutxvhjs in reasons) and Reasons().speltpeoplewrong in reasons and not str(truesender.id) in safe_ids:
+                if (Reasons().talksaboutslaughterhouse in reasons or Reasons().talksaboutxvhjs in reasons or Reasons().talksaboutsatar in reasons) and Reasons().speltpeoplewrong in reasons:
                     print("100% huddy")
                     await guild.ban(truesender, reason="huddy we know its you")
         if kicknew:
@@ -885,7 +897,7 @@ async def on_message(message: discord.Message):
                 if reason == Reasons().ishuddy:
                     await guild.ban(message.author, reason="huddy we know its you")
 
-                if (Reasons().talksaboutslaughterhouse in reasons or Reasons().talksaboutxvhjs in reasons) and Reasons().speltpeoplewrong in reasons:
+                if (Reasons().talksaboutslaughterhouse in reasons or Reasons().talksaboutxvhjs in reasons or Reasons().talksaboutsatar in reasons) and Reasons().speltpeoplewrong in reasons:
                     await guild.ban(message.author, reason="huddy we know its you")
 
 
