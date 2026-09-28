@@ -146,7 +146,8 @@ class Bot:
         self.keywords = [
             'huddy', 'hanzala', 'hanza', 'hamzi', 'hamza', 'hanzi', 'mama666', 'dynasty', 'iceberg',
             'daisysdestruction', 'nanda', 'scully', 'mdpope', 'lolodin', 'trippiethedevil', 'necrobaphome',
-            'iht', 'mega link', 'megalink', 'uttp', 'dvi', 'hurtcore', 'h2tc', 'tripsychixx', 'ydduh'
+            'iht', 'mega link', 'megalink', 'uttp', 'dvi', 'hurtcore', 'h2tc', 'tripsychixx', 'ydduh',  'engel',
+            '𝓔𝓷𝓰𝓮𝓵'            
         ]
 
         if any(name in username.lower() for name in self.keywords):
@@ -182,6 +183,7 @@ class Bot:
 
         return bool(reasons), reasons
     
+
     async def checkmsg(self, message: discord.Message) -> tuple[bool, set]:
         sender = message.author
 
@@ -210,6 +212,11 @@ class Bot:
             if any(mth in text.lower() for mth in ["mythicxx", "mythicxz", "mythiccz", "mythiczz", "authsauth", "barshlo"]):
                 reasons.add(reasonslist.talksaboutauthsauth)
 
+            if any(loel in text.lower() for loel in ["loeleveman", "noogalnastoru", "noogal nastoru"]):
+                reasons.add(reasonslist.talksaboutloeleveman)
+
+            if any(eng in text.lower() for eng in ["engel", "engelfpe", "engel fpe", "engel youtube channel", "engel's youtube channel"]):
+                reasons.add(reasonslist.talksaboutsatar)
             if "forevor" in text.lower():
                 reasons.add(reasonslist.forevermisspell)
 
@@ -261,8 +268,11 @@ class Bot:
         if any(mth in text.lower() for mth in ["mythicxx", "mythicxz", "mythiccz", "mythiczz", "authsauth"]):
             reasons.add(reasonslist.talksaboutauthsauth)
 
-        if any(mth in text.lower() for mth in ["mythicxx", "mythicxz", "mythiccz", "mythiczz", "authsauth"]):
+        if any(loel in text.lower() for loel in ["loeleveman", "noogalnastoru", "noogal nastoru"]):
             reasons.add(reasonslist.talksaboutloeleveman)
+
+        if any(eng in text.lower() for eng in ["engel", "engelfpe", "engel fpe", "engel youtube channel", "engel's youtube channel"]):
+            reasons.add(reasonslist.talksaboutsatar)
 
         if "forevor" in text.lower():
             reasons.add(reasonslist.forevermisspell)
@@ -305,8 +315,11 @@ class Bot:
         if any(mth in text.lower() for mth in ["mythicxx", "mythicxz", "mythiccz", "mythiczz", "authsauth"]):
             reasons.add(reasonslist.talksaboutauthsauth)
 
-        if any(mth in text.lower() for mth in ["mythicxx", "mythicxz", "mythiccz", "mythiczz", "authsauth"]):
+        if any(loel in text.lower() for loel in ["loeleveman", "noogalnastoru", "noogal nastoru"]):
             reasons.add(reasonslist.talksaboutloeleveman)
+
+        if any(eng in text.lower() for eng in ["engel", "engelfpe", "engel fpe", "engel youtube channel", "engel's youtube channel"]):
+            reasons.add(reasonslist.talksaboutsatar)
 
         if "forevor" in text.lower():
             reasons.add(reasonslist.forevermisspell)
@@ -332,6 +345,7 @@ class Reasons:
         self.talksaboutxvhjs = "User talks about xvhjs"
         self.talksaboutauthsauth = "User talks about AuthSauth/Mythiczz"
         self.talksaboutloeleveman = "User talks about Loeleveman"
+        self.talksaboutsatar = "User talks about Satar Arab"
 
         self.speltpeoplewrong = "User spelt people wrong"
         self.controversialmisspell = "User spelt controversial wrong"
