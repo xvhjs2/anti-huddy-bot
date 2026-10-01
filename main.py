@@ -737,8 +737,8 @@ async def on_member_join(member: discord.Member):
     safe_ids = loadsafeids()
     guild = member.guild
     guild_id = guild.id
-    banhuddy_ = configs.get(guild_id, {}).get("banhuddy", True)
-    kicknew = configs.get(guild_id, {}).get("kicknew", False)
+    banhuddy_ = configs.get(str(guild_id), {}).get("banhuddy", True)
+    kicknew = configs.get(str(guild_id), {}).get("kicknew", False)
 
     payload = {
         "content": "",
