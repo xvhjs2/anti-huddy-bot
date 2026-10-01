@@ -73,7 +73,7 @@ class Bot:
         }
         self.idsfile = "huddyids.txt"
         self.config = "data/servers.json"
-        self.newer_than = 1525000000000000000
+        self.newer_than = 1545676767676767670
         self.raidbotkeywords = ["cxe", "krown", "generic", "insomnia"]
         self.topxregex = re.compile(r"^Top .* Worst MIBU Users\/Related", re.IGNORECASE)
         self.topxregex2 = re.compile(r"^Top .* MIBUTUBERS worst than Huddy", re.IGNORECASE)
