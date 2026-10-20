@@ -66,8 +66,8 @@ class Bot:
             "get-fandom": "Gets Huddy's Fandom accounts",
             "addid": "Adds a user ID to the huddyids.txt file (the file that contains all huddy ids). Only the owner of the bot can use this command",
             "removeid": "Removes a user ID from the huddyids.txt file (the file that contains all huddy ids). Only the owner of the bot can use this command",
-            "addsafeid": "Adds a user ID to the safeids.txt file (the file that contains all huddy ids). Only the owner of the bot can use this command",
-            "removesafeid": "Removes a user ID from the safeids.txt file (the file that contains all huddy ids). Only the owner of the bot can use this command",
+            "addsafeid": "Adds a user ID to the safeids.txt file (the file that contains accounts that the bot will ignore). Only the owner of the bot can use this command",
+            "removesafeid": "Removes a user ID from the safeids.txt file (the file that contains accounts that the bot will ignore). Only the owner of the bot can use this command",
             "deletehuddyinvites": "Deletes all invite links created by huddy",
             "gethuddyinvites": "Gets all invite links created by huddy in your server"
         }
